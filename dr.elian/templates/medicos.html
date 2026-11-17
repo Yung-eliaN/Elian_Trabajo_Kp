@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gestión de Médicos - ClínicaMédica</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Montserrat:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-container": "#00b1af",
+                    "error": "#ba1a1a",
+                    "primary-fixed": "#e4e2e1",
+                    "on-primary-container": "#a09f9e",
+                    "on-tertiary-fixed-variant": "#00504f",
+                    "tertiary-fixed": "#67f7f5",
+                    "tertiary-fixed-dim": "#43dbd8",
+                    "surface-container": "#eeeeed",
+                    "inverse-on-surface": "#f1f0f0",
+                    "surface": "#faf9f9",
+                    "on-error-container": "#93000a",
+                    "secondary": "#006a60",
+                    "on-tertiary": "#ffffff",
+                    "inverse-surface": "#2f3131",
+                    "on-primary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary": "#002525",
+                    "on-primary-fixed-variant": "#474747",
+                    "on-background": "#1a1c1c",
+                    "outline": "#747878",
+                    "on-primary-fixed": "#1b1c1c",
+                    "on-tertiary-fixed": "#00201f",
+                    "on-surface-variant": "#444748",
+                    "surface-tint": "#5f5e5e",
+                    "primary": "#212121",
+                    "on-secondary-fixed": "#00201c",
+                    "surface-bright": "#faf9f9",
+                    "surface-container-high": "#e8e8e8",
+                    "secondary-container": "#85f6e5",
+                    "primary-fixed-dim": "#c8c6c6",
+                    "on-surface": "#1a1c1c",
+                    "background": "#faf9f9",
+                    "surface-variant": "#e3e2e2",
+                    "secondary-fixed-dim": "#67d9c9",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#003d3c",
+                    "surface-container-highest": "#e3e2e2",
+                    "on-secondary-fixed-variant": "#005048",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed": "#85f6e5",
+                    "surface-container-low": "#f4f3f3",
+                    "primary-container": "#363636",
+                    "outline-variant": "#c4c7c7",
+                    "on-secondary-container": "#007166",
+                    "surface-dim": "#dadada",
+                    "error-container": "#ffdad6",
+                    "inverse-primary": "#c8c6c6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "sm": "12px",
+                    "gutter": "24px",
+                    "xs": "4px",
+                    "lg": "48px",
+                    "base": "8px",
+                    "md": "24px",
+                    "margin-desktop": "64px",
+                    "xl": "80px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": [
+                            "Montserrat"
+                    ],
+                    "headline-lg": [
+                            "Montserrat"
+                    ],
+                    "body-md": [
+                            "Inter"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ],
+                    "label-md": [
+                            "Inter"
+                    ],
+                    "caption": [
+                            "Inter"
+                    ],
+                    "headline-md": [
+                            "Montserrat"
+                    ],
+                    "display-lg": [
+                            "Montserrat"
+                    ]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "label-md": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "letterSpacing": "0.01em",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "caption": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "56px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex">
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col fixed left-0 top-0 h-full w-64 bg-surface-container-lowest dark:bg-primary-container border-r border-outline-variant py-6 gap-4 z-50">
+<div class="px-6 mb-8 flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-3xl">local_hospital</span>
+<span class="font-headline-md text-headline-md font-extrabold text-primary dark:text-on-primary-fixed tracking-tight">ClínicaMédica</span>
+</div>
+<div class="px-6 mb-6 flex items-center gap-4">
+<img class="w-12 h-12 rounded-full object-cover border-2 border-outline-variant" data-alt="A highly detailed close-up portrait of a professional male doctor with short dark hair, wearing a clean white medical coat over a light blue shirt, looking slightly off-camera with a confident and reassuring expression, standing in a well-lit, modern clinical corridor. The lighting is soft and bright, emphasizing a clean, high-end medical aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDp-dSY7OgHG46f0CpNtTW6rRxycf54roe4NwSKEUQLsBBYNFW3bppyEsrQhSa8N_E-WpcV7Ko7zAVQTGTw30tRSme6YwiCHDnKX52W3QJ_mDR54yEBd8FXiJYKMAnWBn9ahcYOFuybgF0ltUr6iutmRPDWyIaji1WZHHzhG3nM4FBQB0Pn8effHR9vGN9wWopXb2cBgQpZcoq1oxRJZWRkkTgjJdUOM_hEv0mKP-x_2STW76LhlD4"/>
+<div>
+<p class="font-label-md text-label-md font-semibold text-on-surface">Dr. Elian</p>
+<p class="font-caption text-caption text-on-surface-variant">Administrador</p>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto">
+<div class="flex flex-col gap-2">
+<!-- Inactive Tabs -->
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container rounded-lg px-4 py-3 mx-2 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-md text-label-md">Pacientes</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container rounded-lg px-4 py-3 mx-2 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">medical_services</span>
+<span class="font-label-md text-label-md">Tratamientos</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container rounded-lg px-4 py-3 mx-2 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-md text-label-md">Citas</span>
+</a>
+<!-- Active Tab -->
+<a class="flex items-center gap-3 bg-secondary-container text-on-secondary-container rounded-lg px-4 py-3 mx-2 scale-95 active:scale-90 transition-transform font-bold" href="#">
+<span class="material-symbols-outlined fill">medical_information</span>
+<span class="font-label-md text-label-md">Médicos</span>
+</a>
+</div>
+</div>
+<div class="px-4 mt-auto border-t border-outline-variant pt-4 flex flex-col gap-2">
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container rounded-lg px-4 py-3 mx-2 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Ajustes</span>
+</a>
+<a class="flex items-center gap-3 text-error hover:bg-error-container rounded-lg px-4 py-3 mx-2 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md text-label-md">Cerrar Sesión</span>
+</a>
+</div>
+</nav>
+<!-- TopNavBar (Mobile Only) -->
+<nav class="md:hidden flex justify-between items-center w-full px-6 py-3 bg-surface border-b border-outline-variant fixed top-0 left-0 z-40">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-on-primary-fixed">ClínicaMédica</span>
+<div class="flex gap-4 text-on-surface-variant">
+<span class="material-symbols-outlined cursor-pointer hover:bg-surface-container-high transition-colors p-2 rounded-full">search</span>
+<span class="material-symbols-outlined cursor-pointer hover:bg-surface-container-high transition-colors p-2 rounded-full">menu</span>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-64 mt-[64px] md:mt-0 p-margin-mobile md:p-margin-desktop bg-background min-h-screen">
+<!-- Header -->
+<header class="flex flex-col md:flex-row justify-between items-start md:items-center mb-lg gap-4">
+<div>
+<h1 class="font-display-lg text-display-lg text-on-surface">Gestión de Médicos</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Administre el directorio de profesionales médicos de la clínica.</p>
+</div>
+<button class="bg-secondary text-on-secondary px-6 py-3 rounded-lg font-label-md text-label-md font-bold hover:bg-tertiary-container transition-colors shadow-sm flex items-center gap-2">
+<span class="material-symbols-outlined">add</span>
+                Nuevo Médico
+            </button>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-gutter">
+
+
+
+<!-- Registration Form (Spans 4 cols on XL) -->
+<section class="xl:col-span-4 bg-surface rounded-[1rem] border border-outline-variant shadow-sm p-md h-fit">
+<div class="flex items-center gap-3 mb-6 pb-4 border-b border-outline-variant">
+<div class="bg-secondary-container p-2 rounded-full text-on-secondary-container">
+<span class="material-symbols-outlined">person_add</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Registro de Nuevo Médico</h2>
+</div>
+
+<!--··
+imput medicos - Base de datos) 
+-->
+
+<form class="flex flex-col gap-4" method="POST">
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface-variant">Identificación (DNI/Cédula)</label>
+<input class="bg-surface-container-lowest border border-outline-variant rounded-lg px-4 py-3 font-body-md text-body-md focus:border-secondary focus:ring-1 focus:ring-secondary transition-all outline-none" placeholder="Ej. 123456789" type="number" name="idMed" id="idMed"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface-variant">Nombre del Médico</label>
+<input class="bg-surface-container-lowest border border-outline-variant rounded-lg px-4 py-3 font-body-md text-body-md focus:border-secondary focus:ring-1 focus:ring-secondary transition-all outline-none" placeholder="Ej. Juan" type="text" name="nombresMed" id="nombresMed"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface-variant">Apellido del Médico</label>
+<input class="bg-surface-container-lowest border border-outline-variant rounded-lg px-4 py-3 font-body-md text-body-md focus:border-secondary focus:ring-1 focus:ring-secondary transition-all outline-none" placeholder="Ej. Pérez" type="text" name="apellidosMed" id="apellidosMed"/>
+</div>
+
+<button class="mt-4 bg-secondary text-on-secondary px-6 py-3 rounded-lg font-label-md text-label-md font-bold hover:bg-tertiary-container transition-colors shadow-sm w-full" type="submit" type="button">
+                        Guardar Médico
+                    </button>
+</form>
+</section>
+<!-- Registered Doctors List (Spans 8 cols on XL) -->
+<section class="xl:col-span-8 bg-surface rounded-[1rem] border border-outline-variant shadow-sm overflow-hidden flex flex-col">
+<div class="p-md border-b border-outline-variant flex justify-between items-center bg-surface-bright">
+<div class="flex items-center gap-3">
+<div class="bg-surface-container-high p-2 rounded-full text-on-surface-variant">
+<span class="material-symbols-outlined">list_alt</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Médicos Registrados</h2>
+</div>
+<div class="relative w-64 hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 transform -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-full pl-10 pr-4 py-2 font-body-md text-body-md focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all" placeholder="Buscar médico..." type="text"/>
+</div>
+</div>
+<div class="flex-1 overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-lowest border-b border-outline-variant">
+<tr>
+<th class="p-4 font-label-md text-label-md text-on-surface-variant font-medium">Médico</th>
+<th class="p-4 font-label-md text-label-md text-on-surface-variant font-medium">Identificación</th>
+<th class="p-4 font-label-md text-label-md text-on-surface-variant font-medium">Especialidad</th>
+<th class="p-4 font-label-md text-label-md text-on-surface-variant font-medium">Estado</th>
+<th class="p-4 font-label-md text-label-md text-on-surface-variant font-medium text-right">Acciones</th>
+</tr>
+</thead>
+
+<!-- tabla de datos -->
+
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-surface-container-lowest transition-colors group">
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold">
+                                            DR
+                                        </div>
+<div>
+<p class="font-body-md text-body-md font-semibold text-on-surface">Dra. Rosa Martínez</p>
+</div>
+</div>
+</td>
+<td class="p-4 font-body-md text-body-md text-on-surface-variant">876543210</td>
+<td class="p-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-surface-container-high text-on-surface-variant">
+                                        Cardiología
+                                    </span>
+</td>
+<td class="p-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium bg-secondary-container/20 text-secondary border border-secondary-container">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                        Activo
+                                    </span>
+</td>
+<td class="p-4 text-right">
+<button class="text-on-surface-variant hover:text-secondary transition-colors p-2">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors group">
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold">
+                                            CS
+                                        </div>
+<div>
+<p class="font-body-md text-body-md font-semibold text-on-surface">Dr. Carlos Silva</p>
+</div>
+</div>
+</td>
+<td class="p-4 font-body-md text-body-md text-on-surface-variant">112233445</td>
+<td class="p-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-surface-container-high text-on-surface-variant">
+                                        Pediatría
+                                    </span>
+</td>
+<td class="p-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium bg-secondary-container/20 text-secondary border border-secondary-container">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                        Activo
+                                    </span>
+</td>
+<td class="p-4 text-right">
+<button class="text-on-surface-variant hover:text-secondary transition-colors p-2">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</td>
+</tr>
+</tbody>
+
+
+
+</table>
+</div>
+<div class="p-4 border-t border-outline-variant flex justify-between items-center bg-surface-bright text-on-surface-variant">
+<span class="font-caption text-caption">Mostrando 2 de 2 médicos</span>
+<div class="flex gap-2">
+<button class="p-1 rounded hover:bg-surface-container disabled:opacity-50" disabled=""><span class="material-symbols-outlined">chevron_left</span></button>
+<button class="p-1 rounded hover:bg-surface-container disabled:opacity-50" disabled=""><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+</div>
+</section>
+</div>
+</main>
+</body></html>

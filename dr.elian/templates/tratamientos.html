@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Gestión de Tratamientos - ClínicaMédica</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Montserrat:wght@600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#2f3131",
+                        "inverse-primary": "#c8c6c6",
+                        "on-primary-fixed": "#1b1c1c",
+                        "secondary": "#006a60",
+                        "tertiary-fixed": "#67f7f5",
+                        "surface-container-high": "#e8e8e8",
+                        "on-tertiary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-surface": "#1a1c1c",
+                        "primary-container": "#363636",
+                        "surface-container": "#eeeeed",
+                        "surface-bright": "#faf9f9",
+                        "primary-fixed-dim": "#c8c6c6",
+                        "on-primary-container": "#a09f9e",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#444748",
+                        "primary": "#212121",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#003d3c",
+                        "outline": "#747878",
+                        "tertiary-fixed-dim": "#43dbd8",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#474747",
+                        "outline-variant": "#c4c7c7",
+                        "inverse-on-surface": "#f1f0f0",
+                        "surface-variant": "#e3e2e2",
+                        "background": "#faf9f9",
+                        "primary-fixed": "#e4e2e1",
+                        "secondary-fixed": "#85f6e5",
+                        "on-primary": "#ffffff",
+                        "on-background": "#1a1c1c",
+                        "on-tertiary-fixed": "#00201f",
+                        "surface-container-highest": "#e3e2e2",
+                        "on-tertiary-fixed-variant": "#00504f",
+                        "surface-dim": "#dadada",
+                        "on-secondary-fixed-variant": "#005048",
+                        "surface-tint": "#5f5e5e",
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#f4f3f3",
+                        "on-tertiary-container": "#00b1af",
+                        "secondary-container": "#85f6e5",
+                        "on-error": "#ffffff",
+                        "secondary-fixed-dim": "#67d9c9",
+                        "tertiary": "#002525",
+                        "surface": "#faf9f9",
+                        "on-secondary-container": "#007166",
+                        "on-secondary-fixed": "#00201c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "lg": "48px",
+                        "xs": "4px",
+                        "margin-desktop": "64px",
+                        "base": "8px",
+                        "md": "24px",
+                        "gutter": "24px",
+                        "sm": "12px",
+                        "xl": "80px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Montserrat"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "display-lg": ["Montserrat"],
+                        "headline-lg": ["Montserrat"],
+                        "caption": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* Hide scrollbar for clean UI */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #e3e2e2;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #c4c7c7;
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-surface antialiased font-body-md">
+    <div class="flex h-screen overflow-hidden">
+        <!-- Side Navigation (Shared Component) -->
+        <aside
+            class="hidden md:flex bg-surface-container-lowest dark:bg-primary-container border-r border-outline-variant flex-col h-screen py-6 gap-4 fixed left-0 top-0 h-full w-64 z-20 transition-transform">
+            <div class="px-6 mb-4">
+                <div class="flex items-center gap-3">
+                    <img class="w-10 h-10 rounded-full object-cover border border-outline-variant"
+                        data-alt="A professional headshot of a mature, confident doctor in a clean, brightly lit modern clinic environment. High-key lighting, soft shadows, pristine white background indicating a sterile but welcoming medical setting."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoeOXx3MZF-eTKbxDgk_1l3klf5E4JH4Au0Un6tG4UZ1CV5ACAp89jA0vavQn7Obqmtvd6EienVonaj77PyoCwoofuhJh82EgGCeyHNeLVz-sqvFes9PPI1avJYcIeeM2p8CKGOLZhUmsh7gV-WIsSzpa6M1CgA0a6H8j4PpD6eIppqErPHRh5ltiN0-X7QoKqB0EgnKglbuhtLIkYKTjaute0Jwyi27v0SBnO3mQunFkEgfnTBhg" />
+                    <div>
+                        <h2 class="font-label-md text-label-md font-bold text-on-surface">Dr. Elian</h2>
+                        <p class="font-caption text-caption text-on-surface-variant">Administrador</p>
+                    </div>
+                </div>
+            </div>
+            <div class="px-4 mb-4">
+                <button
+                    class="w-full bg-secondary text-on-secondary rounded-lg py-3 px-4 flex items-center justify-center gap-2 hover:opacity-90 transition-opacity font-label-md text-label-md shadow-sm">
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add</span>
+                    Nueva Cita
+                </button>
+            </div>
+            <nav class="flex-1 overflow-y-auto px-2 space-y-1">
+                <!-- Inactive -->
+                <a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container rounded-lg px-4 py-3 mx-2 scale-95 active:scale-90 transition-all cursor-pointer"
+                    href="#">
+                    <span class="material-symbols-outlined">group</span>
+                    <span class="font-label-md text-label-md">Pacientes</span>
+                </a>
+                <!-- Active -->
+                <a class="flex items-center gap-3 bg-secondary-container text-on-secondary-container rounded-lg px-4 py-3 mx-2 scale-95 active:scale-90 transition-all cursor-pointer"
+                    href="#">
+                    <span class="material-symbols-outlined"
+                        style="font-variation-settings: 'FILL' 1;">medical_services</span>
+                    <span class="font-label-md text-label-md font-bold">Tratamientos</span>
+                </a>
+                <!-- Inactive -->
+                <a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container rounded-lg px-4 py-3 mx-2 scale-95 active:scale-90 transition-all cursor-pointer"
+                    href="#">
+                    <span class="material-symbols-outlined">calendar_today</span>
+                    <span class="font-label-md text-label-md">Citas</span>
+                </a>
+                <!-- Inactive -->
+                <a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container rounded-lg px-4 py-3 mx-2 scale-95 active:scale-90 transition-all cursor-pointer"
+                    href="#">
+                    <span class="material-symbols-outlined">medical_information</span>
+                    <span class="font-label-md text-label-md">Médicos</span>
+                </a>
+            </nav>
+            <div class="mt-auto px-2 space-y-1 pb-4">
+                <a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container rounded-lg px-4 py-3 mx-2 scale-95 active:scale-90 transition-all cursor-pointer"
+                    href="#">
+                    <span class="material-symbols-outlined">settings</span>
+                    <span class="font-label-md text-label-md">Ajustes</span>
+                </a>
+                <a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container rounded-lg px-4 py-3 mx-2 scale-95 active:scale-90 transition-all cursor-pointer"
+                    href="#">
+                    <span class="material-symbols-outlined">logout</span>
+                    <span class="font-label-md text-label-md">Cerrar Sesión</span>
+                </a>
+            </div>
+        </aside>
+        <!-- Main Content Area -->
+        <div class="flex-1 flex flex-col md:ml-64 relative min-w-0">
+            <!-- Top Navigation (Shared Component) -->
+            <header
+                class="bg-surface dark:bg-inverse-surface flex justify-between items-center w-full px-6 py-3 border-b border-outline-variant sticky top-0 z-10 shadow-sm">
+                <div class="flex items-center gap-4">
+                    <!-- Mobile menu button (hidden on desktop) -->
+                    <button
+                        class="md:hidden text-on-surface-variant p-2 -ml-2 rounded-full hover:bg-surface-container-high transition-colors">
+                        <span class="material-symbols-outlined">menu</span>
+                    </button>
+                    <span
+                        class="font-headline-md text-headline-md font-bold text-primary dark:text-on-primary-fixed hidden sm:block">ClínicaMédica</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button
+                        class="text-secondary dark:text-secondary-fixed p-2 rounded-full hover:bg-surface-container-high transition-colors cursor-pointer active:opacity-80">
+                        <span class="material-symbols-outlined">search</span>
+                    </button>
+                    <div class="h-6 w-px bg-outline-variant mx-1"></div>
+                    <button
+                        class="text-secondary dark:text-secondary-fixed p-2 rounded-full hover:bg-surface-container-high transition-colors cursor-pointer active:opacity-80 relative">
+                        <span class="material-symbols-outlined">notifications</span>
+                        <span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+                    </button>
+                    <button
+                        class="text-secondary dark:text-secondary-fixed p-2 rounded-full hover:bg-surface-container-high transition-colors cursor-pointer active:opacity-80 hidden sm:block">
+                        <span class="material-symbols-outlined">settings</span>
+                    </button>
+                    <img alt="Dr. Elian"
+                        class="w-8 h-8 rounded-full ml-2 border border-outline-variant object-cover block md:hidden"
+                        data-alt="A professional headshot of a mature, confident doctor in a clean, brightly lit modern clinic environment. High-key lighting, soft shadows, pristine white background indicating a sterile but welcoming medical setting."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIeG57L6ZMZw-tEnAigFUbH00L5kLQlxwyGUF03WhRLzIlufA8jvflT1WwEoS2sZelgMZjUzxGfomGsZWvg_aO2KxQmG8-SAghSPK1v_8i6JfZPsBMo2sVZArgGQKkrO1BANBy5MSXEHdPtBYDx0wzbnAjaobVuFIQl_jG-sOHJFxjWjED2LT_rzi9KPOn5HnmFDaLQptD-3gYl9wCGtTcouLfMt0SUhiVLkMrpUlHb0WcMfIBYUc" />
+                </div>
+            </header>
+            <!-- Scrollable Canvas -->
+            <main class="flex-1 overflow-y-auto p-4 md:p-lg">
+                <div class="max-w-7xl mx-auto space-y-lg">
+                    <!-- Header Section -->
+                    <section class="space-y-2">
+                        <h1 class="font-display-lg text-[32px] md:text-display-lg text-on-surface">Gestión de
+                            Tratamientos</h1>
+                        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl">
+                            Administre, registre y haga seguimiento de los protocolos médicos asignados a los pacientes
+                            para asegurar una atención continua y efectiva.
+                        </p>
+                    </section>
+                    <!-- Bento Grid Content -->
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                        <!-- Left Column: Registration Form (Takes 8 columns on large screens) -->
+                        <div
+                            class="lg:col-span-8 bg-surface rounded-xl border border-outline-variant shadow-[0_4px_12px_rgba(0,0,0,0.05)] overflow-hidden">
+                            <div
+                                class="px-6 py-5 border-b border-outline-variant bg-surface-bright flex items-center gap-3">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+                                    <span class="material-symbols-outlined text-sm">edit_document</span>
+                                </div>
+                                <h3 class="font-headline-md text-xl md:text-headline-md text-on-surface">Registro de
+                                    Tratamiento</h3>
+                            </div>
+                            <form class="p-6 space-y-6" method="post">
+                                <!-- Info Row -->
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div class="space-y-2">
+                                        <label class="block font-label-md text-label-md text-on-surface-variant"
+                                            for="treatment_num">Número de Tratamiento</label>
+                                        <input
+                                            class="w-full bg-background border border-outline-variant rounded-md px-4 py-2.5 font-body-md text-body-md text-on-surface focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors"
+                                            id="id_tra" name="id_tra" placeholder="Ej. TRT-2023-001"  type="number"
+                                             />
+                                        
+                                    </div>
+                                    <div class="space-y-2 relative">
+                                        <label class="block font-label-md text-label-md text-on-surface-variant"
+                                            for="patient_search">Paciente</label>
+                                        <div class="relative">
+                                            <span
+                                                class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+                                            <input
+                                                class="w-full bg-background border border-outline-variant rounded-md pl-10 pr-4 py-2.5 font-body-md text-body-md text-on-surface focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors"
+                                                id="patient_search" placeholder="Buscar paciente por nombre o DNI..."
+                                                type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w-full h-px bg-surface-container-highest my-4"></div>
+                                <!-- Dates Row -->
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                    <div class="space-y-2">
+                                        <label class="block font-label-md text-label-md text-on-surface-variant"
+                                            for="date_assigned">Fecha de Asignación</label>
+                                        <div class="relative">
+                                            <input
+                                                class="w-full bg-background border border-outline-variant rounded-md px-4 py-2.5 font-body-md text-body-md text-on-surface focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors"
+                                                id="fecha_tra" name="fecha_tra" type="date" />
+                                        </div>
+                                    </div>
+                                    <div class="space-y-2">
+                                        <label class="block font-label-md text-label-md text-on-surface-variant"
+                                            for="date_start">Fecha de Inicio</label>
+                                        <input
+                                            class="w-full bg-background border border-outline-variant rounded-md px-4 py-2.5 font-body-md text-body-md text-on-surface focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors"
+                                            id="fechaIn_tra" name="fechaIn_tra" type="date" />
+                                    </div>
+                                    <div class="space-y-2">
+                                        <label class="block font-label-md text-label-md text-on-surface-variant"
+                                            for="date_end">Fecha de Fin (Estimada)</label>
+                                        <input
+                                            class="w-full bg-background border border-outline-variant rounded-md px-4 py-2.5 font-body-md text-body-md text-on-surface focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors"
+                                            id="fechaFin_tra" name="fechaFin_tra" type="date" />
+                                    </div>
+                                </div>
+                                <div class="w-full h-px bg-surface-container-highest my-4"></div>
+                                <!-- Textareas -->
+                                <div class="space-y-6">
+                                    <div class="space-y-2">
+                                        <label class="block font-label-md text-label-md text-on-surface-variant"
+                                            for="description">Descripción del Tratamiento</label>
+                                        <textarea
+                                            class="w-full bg-background border border-outline-variant rounded-md px-4 py-3 font-body-md text-body-md text-on-surface focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors resize-none"
+                                            id="descripcion_tra" name="descripcion_tra"
+                                            placeholder="Detalle los procedimientos, medicamentos y pautas a seguir..."
+                                            rows="3"></textarea>
+                                    </div>
+                                    <div class="space-y-2">
+                                        <label class="block font-label-md text-label-md text-on-surface-variant"
+                                            for="observations">Observaciones Adicionales</label>
+                                        <textarea
+                                            class="w-full bg-background border border-outline-variant rounded-md px-4 py-3 font-body-md text-body-md text-on-surface focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors resize-none"
+                                            id="obsevaciones_tra" name="obsevaciones_tra"
+                                            placeholder="Notas internas, alergias relevantes o condiciones preexistentes a considerar..."
+                                            rows="2"></textarea>
+                                    </div>
+                                </div>
+                                <!-- Form Actions -->
+                                <div class="pt-4 flex items-center justify-end gap-4">
+                                    <button
+                                        class="px-6 py-2.5 rounded-md border border-outline-variant text-on-surface-variant font-label-md text-label-md hover:bg-surface-container transition-colors"
+                                        type="button">
+                                        Cancelar
+                                    </button>
+                                    <button
+                                        class="px-6 py-2.5 rounded-md bg-secondary text-on-secondary font-label-md text-label-md hover:opacity-90 shadow-sm flex items-center gap-2 transition-all active:scale-95"
+                                        type="submit">
+                                        <span class="material-symbols-outlined text-sm">save</span>
+                                        Guardar Tratamiento
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- Right Column: Context/Stats (Takes 4 columns on large screens) -->
+                        <div class="lg:col-span-4 space-y-6">
+                            <!-- Quick Status Card -->
+                            <div
+                                class="bg-surface rounded-xl border border-outline-variant shadow-sm p-6 relative overflow-hidden group cursor-default">
+                                <div
+                                    class="absolute -right-6 -top-6 w-24 h-24 bg-tertiary-container/10 rounded-full group-hover:scale-150 transition-transform duration-500 ease-out">
+                                </div>
+                                <h4
+                                    class="font-label-md text-label-md text-on-surface-variant mb-1 uppercase tracking-wider">
+                                    Tratamientos Activos Mes</h4>
+                                <div class="flex items-end gap-3 mt-2">
+                                    <span class="font-display-lg text-[40px] text-secondary leading-none">142</span>
+                                    <span
+                                        class="flex items-center text-secondary-fixed-dim font-label-md text-sm mb-1 bg-secondary-container/20 px-2 py-0.5 rounded">
+                                        <span class="material-symbols-outlined text-[16px] mr-1">trending_up</span>
+                                        +12%
+                                    </span>
+                                </div>
+                            </div>
+                            <!-- Information Card -->
+                            <div class="bg-surface-bright rounded-xl border border-outline-variant p-6">
+                                <div class="flex items-center gap-2 mb-4">
+                                    <span class="material-symbols-outlined text-secondary">info</span>
+                                    <h4 class="font-headline-md text-lg text-on-surface">Guía Rápida</h4>
+                                </div>
+                                <ul class="space-y-3 font-body-md text-[14px] text-on-surface-variant">
+                                    <li class="flex gap-2">
+                                        <span
+                                            class="material-symbols-outlined text-[18px] text-outline mt-0.5">check_circle</span>
+                                        <span>Asegúrese de vincular el tratamiento con un paciente registrado
+                                            previamente.</span>
+                                    </li>
+                                    <li class="flex gap-2">
+                                        <span
+                                            class="material-symbols-outlined text-[18px] text-outline mt-0.5">check_circle</span>
+                                        <span>Las fechas estimadas pueden ajustarse posteriormente en el panel de
+                                            seguimiento.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Table Section -->
+                    <section class="mt-lg">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+                            <div>
+                                <h2 class="font-headline-lg text-2xl md:text-headline-lg text-on-surface">Tratamientos
+                                    Activos</h2>
+                                <p class="font-body-md text-on-surface-variant mt-1">Listado de los protocolos
+                                    actualmente en curso.</p>
+                            </div>
+                            <div class="flex items-center gap-3 w-full sm:w-auto">
+                                <div class="relative w-full sm:w-64">
+                                    <span
+                                        class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">filter_list</span>
+                                    <input
+                                        class="w-full bg-surface border border-outline-variant rounded-full pl-10 pr-4 py-2 font-body-md text-[14px] text-on-surface focus:outline-none focus:border-secondary transition-colors"
+                                        placeholder="Filtrar tabla..." type="text" />
+                                </div>
+                            </div>
+                        </div>
+                            <div class="bg-surface rounded-xl border border-outline-variant shadow-sm overflow-x-auto">
+                                <table class="w-full text-left border-collapse">
+                                    <thead>
+                                        <tr class="border-b border-outline-variant bg-surface-container-lowest">
+                                            <th
+                                                class="py-4 px-6 font-label-md text-label-md text-on-surface-variant font-semibold">
+                                                Tratamiento #</th>
+                                            <th
+                                                class="py-4 px-6 font-label-md text-label-md text-on-surface-variant font-semibold">
+                                                Paciente</th>
+                                            <th
+                                                class="py-4 px-6 font-label-md text-label-md text-on-surface-variant font-semibold">
+                                                Asignación</th>
+                                            <th
+                                                class="py-4 px-6 font-label-md text-label-md text-on-surface-variant font-semibold">
+                                                Progreso</th>
+                                            <th
+                                                class="py-4 px-6 font-label-md text-label-md text-on-surface-variant font-semibold">
+                                                Estado</th>
+                                            <th
+                                                class="py-4 px-6 text-right font-label-md text-label-md text-on-surface-variant font-semibold">
+                                                Acciones</th>
+                                        </tr>
+                                    </thead>
+                                <tbody
+                                    class="font-body-md text-body-md text-on-surface divide-y divide-outline-variant/50">
+                                    <tr class="hover:bg-surface-container-lowest/50 transition-colors group">
+                                        <td class="py-4 px-6 font-medium">TRT-2408-110</td>
+                                        <td class="py-4 px-6">
+                                            <div class="flex items-center gap-3">
+                                                <div
+                                                    class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold text-xs">
+                                                    MA</div>
+                                                <span>María Álvarez</span>
+                                            </div>
+                                        </td>
+                                        <td class="py-4 px-6 text-on-surface-variant">12 Ago, 2024</td>
+                                        <td class="py-4 px-6">
+                                            <div class="w-full bg-surface-container-highest rounded-full h-1.5 mt-2">
+                                                <div class="bg-secondary h-1.5 rounded-full" style="width: 45%"></div>
+                                            </div>
+                                            <span class="text-[12px] text-outline mt-1 block">45% completado</span>
+                                        </td>
+                                        <td class="py-4 px-6">
+                                            <span
+                                                class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-secondary-container/20 text-secondary-fixed-dim border border-secondary-container/30">
+                                                En Curso
+                                            </span>
+                                        </td>
+                                        <td class="py-4 px-6 text-right">
+                                            <button
+                                                class="text-outline hover:text-secondary p-1 rounded-full hover:bg-surface-container transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100">
+                                                <span class="material-symbols-outlined text-xl">more_vert</span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-surface-container-lowest/50 transition-colors group">
+                                        <td class="py-4 px-6 font-medium">TRT-2408-105</td>
+                                        <td class="py-4 px-6">
+                                            <div class="flex items-center gap-3">
+                                                <div
+                                                    class="w-8 h-8 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center font-bold text-xs">
+                                                    JR</div>
+                                                <span>Juan Ramírez</span>
+                                            </div>
+                                        </td>
+                                        <td class="py-4 px-6 text-on-surface-variant">05 Ago, 2024</td>
+                                        <td class="py-4 px-6">
+                                            <div class="w-full bg-surface-container-highest rounded-full h-1.5 mt-2">
+                                                <div class="bg-secondary h-1.5 rounded-full" style="width: 80%"></div>
+                                            </div>
+                                            <span class="text-[12px] text-outline mt-1 block">80% completado</span>
+                                        </td>
+                                        <td class="py-4 px-6">
+                                            <span
+                                                class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-secondary-container/20 text-secondary-fixed-dim border border-secondary-container/30">
+                                                En Curso
+                                            </span>
+                                        </td>
+                                        <td class="py-4 px-6 text-right">
+                                            <button
+                                                class="text-outline hover:text-secondary p-1 rounded-full hover:bg-surface-container transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100">
+                                                <span class="material-symbols-outlined text-xl">more_vert</span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-surface-container-lowest/50 transition-colors group">
+                                        <td class="py-4 px-6 font-medium">TRT-2407-089</td>
+                                        <td class="py-4 px-6">
+                                            <div class="flex items-center gap-3">
+                                                <div
+                                                    class="w-8 h-8 rounded-full bg-surface-variant text-on-surface-variant border border-outline-variant flex items-center justify-center font-bold text-xs">
+                                                    LG</div>
+                                                <span>Lucía Gómez</span>
+                                            </div>
+                                        </td>
+                                        <td class="py-4 px-6 text-on-surface-variant">28 Jul, 2024</td>
+                                        <td class="py-4 px-6">
+                                            <div class="w-full bg-surface-container-highest rounded-full h-1.5 mt-2">
+                                                <div class="bg-outline h-1.5 rounded-full" style="width: 15%"></div>
+                                            </div>
+                                            <span class="text-[12px] text-outline mt-1 block">15% completado</span>
+                                        </td>
+                                        <td class="py-4 px-6">
+                                            <span
+                                                class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-surface-variant text-on-surface-variant border border-outline-variant">
+                                                Pausado
+                                            </span>
+                                        </td>
+                                        <td class="py-4 px-6 text-right">
+                                            <button
+                                                class="text-outline hover:text-secondary p-1 rounded-full hover:bg-surface-container transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100">
+                                                <span class="material-symbols-outlined text-xl">more_vert</span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!-- Pagination Mock -->
+                            <div
+                                class="px-6 py-4 border-t border-outline-variant flex items-center justify-between bg-surface-bright">
+                                <span class="font-body-md text-sm text-on-surface-variant">Mostrando 1 a 3 de 142
+                                    resultados</span>
+                                <div class="flex gap-1">
+                                    <button
+                                        class="w-8 h-8 rounded border border-outline-variant flex items-center justify-center text-outline hover:bg-surface-container disabled:opacity-50"
+                                        disabled="">
+                                        <span class="material-symbols-outlined text-sm">chevron_left</span>
+                                    </button>
+                                    <button
+                                        class="w-8 h-8 rounded bg-secondary text-on-secondary flex items-center justify-center text-sm font-medium">1</button>
+                                    <button
+                                        class="w-8 h-8 rounded border border-outline-variant flex items-center justify-center text-on-surface hover:bg-surface-container text-sm font-medium">2</button>
+                                    <button
+                                        class="w-8 h-8 rounded border border-outline-variant flex items-center justify-center text-on-surface hover:bg-surface-container text-sm font-medium">3</button>
+                                    <button
+                                        class="w-8 h-8 rounded border border-outline-variant flex items-center justify-center text-outline hover:bg-surface-container">
+                                        <span class="material-symbols-outlined text-sm">chevron_right</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Bottom spacing -->
+                    <div class="h-12"></div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+
+</html>

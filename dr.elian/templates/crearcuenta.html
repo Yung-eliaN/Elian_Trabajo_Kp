@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Registro de Paciente - Dr. Elian</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Montserrat:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#1a1c1c",
+                        "outline-variant": "#c4c7c7",
+                        "primary-container": "#363636",
+                        "on-secondary-container": "#007166",
+                        "background": "#faf9f9",
+                        "on-background": "#1a1c1c",
+                        "surface-variant": "#e3e2e2",
+                        "surface-container-highest": "#e3e2e2",
+                        "on-primary-fixed": "#1b1c1c",
+                        "inverse-surface": "#2f3131",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#005048",
+                        "surface-bright": "#faf9f9",
+                        "on-tertiary-fixed-variant": "#00504f",
+                        "on-primary-container": "#a09f9e",
+                        "tertiary": "#002525",
+                        "primary-fixed": "#e4e2e1",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#444748",
+                        "surface-tint": "#5f5e5e",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#00201f",
+                        "surface-container-low": "#f4f3f3",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#212121",
+                        "secondary-container": "#85f6e5",
+                        "on-tertiary-container": "#00b1af",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#c8c6c6",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed": "#67f7f5",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#43dbd8",
+                        "surface-dim": "#dadada",
+                        "inverse-primary": "#c8c6c6",
+                        "tertiary-container": "#003d3c",
+                        "secondary-fixed-dim": "#67d9c9",
+                        "surface": "#faf9f9",
+                        "outline": "#747878",
+                        "inverse-on-surface": "#f1f0f0",
+                        "surface-container": "#eeeeed",
+                        "on-secondary-fixed": "#00201c",
+                        "secondary-fixed": "#85f6e5",
+                        "surface-container-high": "#e8e8e8",
+                        "on-primary-fixed-variant": "#474747",
+                        "secondary": "#006a60"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "lg": "48px",
+                        "md": "24px",
+                        "sm": "12px",
+                        "gutter": "24px",
+                        "xs": "4px",
+                        "base": "8px",
+                        "margin-desktop": "64px",
+                        "xl": "80px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Montserrat"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Montserrat"],
+                        "caption": ["Inter"],
+                        "display-lg": ["Montserrat"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Montserrat"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- Split Layout Container -->
+<div class="flex w-full min-h-screen">
+<!-- Left Side: Hero Image (Hidden on mobile, visible on lg screens) -->
+<div class="hidden lg:block lg:w-5/12 xl:w-1/2 relative bg-surface-container-low">
+<img alt="Doctor portrait in clinic" class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADBGy7Pt84CaqCcGiWHc8g_Z_Xhyw4GT3VNgWu4SWrYIaKHU3tDSiHhspiRIIwo9rnc4Z7tg6WTGiKxgI1oZvy8Tw_ZHYbxY0uWB13mVvQXRFUbfimhtmJgBr0L1VEJ9GkHBTG1rTQP4tT-aRmUYyDXfphf6zPMK_f2_KUbe6bNeY1laIgKJxxIX8UsaR7zQH2O4FKqgSjhwV7-V0y0xP-Y-mTTvFWvFusGZWj4o0FHK7ECT6-Adg"/>
+<!-- Subtle gradient overlay for depth -->
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent"></div>
+<div class="absolute bottom-margin-desktop left-margin-desktop right-margin-desktop z-10 text-on-primary">
+<h2 class="font-headline-lg text-headline-lg mb-sm">Atención Médica de Excelencia</h2>
+<p class="font-body-lg text-body-lg opacity-90 max-w-md">Su salud es nuestra prioridad. Únase a nuestra plataforma para gestionar sus citas y acceder a su historial médico de forma segura.</p>
+</div>
+</div>
+<!-- Right Side: Registration Form -->
+<div class="w-full lg:w-7/12 xl:w-1/2 flex items-center justify-center px-margin-mobile md:px-margin-desktop py-12 lg:py-0 overflow-y-auto">
+<div class="w-full max-w-md">
+<!-- Brand Anchor -->
+<div class="mb-xl flex items-center gap-xs">
+<span class="material-symbols-outlined text-secondary text-[32px]">local_hospital</span>
+<span class="font-headline-md text-headline-md text-primary">Dr. Elian</span>
+</div>
+<!-- Form Header -->
+<div class="mb-lg">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-xs">Crear cuenta</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Ingrese sus datos para registrarse como paciente.</p>
+</div>
+<!-- Registration Form -->
+<form action="#" class="space-y-md" method="POST">
+<!-- Full Name -->
+<div class="flex flex-col gap-xs relative">
+<label class="font-label-md text-label-md text-on-surface" for="fullName">Nombre Completo</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">person</span>
+<input class="w-full pl-10 pr-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-DEFAULT focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all font-body-md text-body-md text-on-surface placeholder:text-outline-variant" id="fullName" name="fullName" placeholder="Ej. Juan Pérez" required="" type="text"/>
+</div>
+</div>
+<!-- ID Number -->
+<div class="flex flex-col gap-xs relative">
+<label class="font-label-md text-label-md text-on-surface" for="idNumber">Documento de Identidad (DNI/Cédula)</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">badge</span>
+<input class="w-full pl-10 pr-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-DEFAULT focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all font-body-md text-body-md text-on-surface placeholder:text-outline-variant" id="idNumber" name="idNumber" placeholder="Número de documento" required="" type="text"/>
+</div>
+</div>
+<!-- Email -->
+<div class="flex flex-col gap-xs relative">
+<label class="font-label-md text-label-md text-on-surface" for="email">Correo Electrónico</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">mail</span>
+<input class="w-full pl-10 pr-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-DEFAULT focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all font-body-md text-body-md text-on-surface placeholder:text-outline-variant" id="email" name="email" placeholder="correo@ejemplo.com" required="" type="email"/>
+</div>
+</div>
+<!-- Phone Number -->
+<div class="flex flex-col gap-xs relative">
+<label class="font-label-md text-label-md text-on-surface" for="phone">Número de Teléfono</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">call</span>
+<input class="w-full pl-10 pr-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-DEFAULT focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all font-body-md text-body-md text-on-surface placeholder:text-outline-variant" id="phone" name="phone" placeholder="+57 300 000 0000" required="" type="tel"/>
+</div>
+</div>
+<!-- Password -->
+<div class="flex flex-col gap-xs relative">
+<label class="font-label-md text-label-md text-on-surface" for="password">Contraseña</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">lock</span>
+<input class="w-full pl-10 pr-10 py-3 bg-surface-container-lowest border border-outline-variant rounded-DEFAULT focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all font-body-md text-body-md text-on-surface placeholder:text-outline-variant" id="password" name="password" placeholder="Mínimo 8 caracteres" required="" type="password"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-outline hover:text-on-surface transition-colors" onclick="togglePasswordVisibility()" type="button">
+<span class="material-symbols-outlined" id="visibilityIcon">visibility</span>
+</button>
+</div>
+</div>
+<!-- Privacy Policy Checkbox (Optional but standard) -->
+<div class="flex items-start gap-3 mt-sm">
+<input class="mt-1 h-4 w-4 rounded border-outline-variant text-secondary focus:ring-secondary bg-surface-container-lowest" id="terms" required="" type="checkbox"/>
+<label class="font-caption text-caption text-on-surface-variant" for="terms">
+                            Al registrarme, acepto los <a class="text-secondary hover:underline" href="#">Términos de Servicio</a> y la <a class="text-secondary hover:underline" href="#">Política de Privacidad</a>.
+                        </label>
+</div>
+<!-- Submit Button -->
+<button class="w-full mt-lg py-3 px-4 bg-secondary text-on-secondary rounded-lg font-label-md text-label-md shadow-sm hover:bg-on-secondary-container hover:shadow-md transition-all duration-200 flex justify-center items-center gap-2" type="submit">
+<span>Registrarse</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</form>
+<!-- Login Link -->
+<div class="mt-lg text-center">
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        ¿Ya tienes una cuenta? 
+                        <a class="font-label-md text-label-md text-secondary hover:underline ml-1" href="{{url_for('sesion')}}">Iniciar sesión</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Simple script for password visibility toggle -->
+<script>
+        function togglePasswordVisibility() {
+            const passwordInput = document.getElementById('password');
+            const visibilityIcon = document.getElementById('visibilityIcon');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                visibilityIcon.textContent = 'visibility_off';
+            } else {
+                passwordInput.type = 'password';
+                visibilityIcon.textContent = 'visibility';
+            }
+        }
+    </script>
+</body></html>

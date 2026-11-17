@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gestión de Citas - ClínicaMédica</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Montserrat:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#e3e2e2",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#5f5e5e",
+                        "primary-container": "#363636",
+                        "background": "#faf9f9",
+                        "surface-bright": "#faf9f9",
+                        "outline": "#747878",
+                        "surface-container-highest": "#e3e2e2",
+                        "surface-container-high": "#e8e8e8",
+                        "tertiary-fixed-dim": "#43dbd8",
+                        "secondary-fixed": "#85f6e5",
+                        "inverse-primary": "#c8c6c6",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed": "#00201f",
+                        "surface": "#faf9f9",
+                        "inverse-on-surface": "#f1f0f0",
+                        "on-surface": "#1a1c1c",
+                        "surface-dim": "#dadada",
+                        "secondary-container": "#85f6e5",
+                        "secondary": "#006a60",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#eeeeed",
+                        "on-secondary-fixed-variant": "#005048",
+                        "on-surface-variant": "#444748",
+                        "primary": "#212121",
+                        "on-tertiary-fixed-variant": "#00504f",
+                        "on-secondary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-background": "#1a1c1c",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#67d9c9",
+                        "on-primary-fixed-variant": "#474747",
+                        "on-secondary-fixed": "#00201c",
+                        "on-secondary-container": "#007166",
+                        "tertiary-fixed": "#67f7f5",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#f4f3f3",
+                        "tertiary": "#002525",
+                        "on-primary-container": "#a09f9e",
+                        "primary-fixed-dim": "#c8c6c6",
+                        "tertiary-container": "#003d3c",
+                        "outline-variant": "#c4c7c7",
+                        "on-tertiary-container": "#00b1af",
+                        "inverse-surface": "#2f3131",
+                        "on-primary-fixed": "#1b1c1c",
+                        "primary-fixed": "#e4e2e1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "xl": "80px",
+                        "margin-desktop": "64px",
+                        "md": "24px",
+                        "xs": "4px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "sm": "12px",
+                        "lg": "48px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Montserrat"],
+                        "caption": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Montserrat"],
+                        "headline-lg": ["Montserrat"],
+                        "label-md": ["Inter"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md flex h-screen overflow-hidden selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- SideNavBar (from JSON) -->
+<aside class="hidden md:flex flex-col fixed left-0 top-0 h-full w-64 bg-surface-container-lowest border-r border-outline-variant z-20">
+<div class="flex flex-col h-screen py-6 gap-4">
+<!-- Brand / Profile Header -->
+<div class="px-6 pb-6 border-b border-outline-variant/30 flex flex-col items-center">
+<div class="w-20 h-20 rounded-full overflow-hidden mb-4 border-2 border-surface-container">
+<img alt="Dr. Elian" class="w-full h-full object-cover" data-alt="A professional headshot of a mature, confident male doctor with greying hair, smiling warmly. He is wearing a crisp white medical coat and a stethoscope around his neck. The lighting is bright and natural, set in a modern, clean clinical environment with large windows in the background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJE1VHO_Wy9B4elN9zjYQYdVQxOZh0vweE5J6mhxbzJzkOC0LxcqAe-yU16F38ndnlezPiRIcAm6g7Va--26rYvXkLCCLspA-m6c4hKuZIHYegDDLtg7pMg0g0o3ZnH9v1g359_Mc3iBOtl7rPQaOjFPLswkmsYb1XFNDDq7PMZ75fKaEkqZjSD1suIyiSwOKKWx0rS1ue_wGbVDufEts8BzcPxVRJKajsAaPoSnLyPeAt7Hcfd8s"/>
+</div>
+<h2 class="font-headline-md text-headline-md font-extrabold text-primary text-center">Dr. Elian</h2>
+<p class="font-label-md text-label-md text-on-surface-variant">Administrador</p>
+<button class="mt-6 w-full bg-secondary text-on-secondary rounded-lg py-2 font-label-md text-label-md hover:bg-secondary/90 transition-colors flex items-center justify-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">add</span> Nueva Cita
+                </button>
+</div>
+<!-- Navigation Links -->
+<nav class="flex-1 overflow-y-auto pt-2 flex flex-col gap-1">
+<!-- Pacientes -->
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container rounded-lg px-4 py-3 mx-2 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-md text-label-md">Pacientes</span>
+</a>
+<!-- Tratamientos -->
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container rounded-lg px-4 py-3 mx-2 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">medical_services</span>
+<span class="font-label-md text-label-md">Tratamientos</span>
+</a>
+<!-- Citas (ACTIVE) -->
+<a class="flex items-center gap-3 bg-secondary-container text-on-secondary-container rounded-lg px-4 py-3 mx-2 scale-95 active:scale-90 transition-transform shadow-sm" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
+<span class="font-label-md text-label-md font-bold">Citas</span>
+</a>
+<!-- Médicos -->
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container rounded-lg px-4 py-3 mx-2 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">medical_information</span>
+<span class="font-label-md text-label-md">Médicos</span>
+</a>
+</nav>
+<!-- Footer Links -->
+<div class="px-2 pt-4 border-t border-outline-variant/30 flex flex-col gap-1">
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container rounded-lg px-4 py-3 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Ajustes</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container rounded-lg px-4 py-3 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md text-label-md">Cerrar Sesión</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Workspace -->
+<div class="flex-1 flex flex-col md:ml-64 h-screen bg-background">
+<!-- TopNavBar (from JSON) -->
+<header class="flex justify-between items-center w-full px-6 py-3 bg-surface-container-lowest shadow-sm z-10 sticky top-0">
+<div class="flex items-center gap-4 w-1/2 max-w-md">
+<!-- Mobile Menu Button -->
+<button class="md:hidden text-on-surface-variant hover:bg-surface-container p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="font-headline-md text-headline-md font-bold text-primary md:hidden">ClínicaMédica</div>
+<!-- Search Bar -->
+<div class="hidden md:flex relative w-full items-center">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-full py-2 pl-10 pr-4 text-body-md text-on-surface focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-all" placeholder="Buscar paciente o cita..." type="text"/>
+</div>
+</div>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-2">
+<button class="text-on-surface-variant hover:bg-surface-container-high transition-colors p-2 rounded-full cursor-pointer active:opacity-80 relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full border-2 border-surface"></span>
+</button>
+<button class="text-on-surface-variant hover:bg-surface-container-high transition-colors p-2 rounded-full cursor-pointer active:opacity-80 hidden md:block">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 overflow-y-auto p-margin-mobile md:p-margin-desktop">
+<div class="mb-lg flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<div>
+<h1 class="font-display-lg text-display-lg text-primary">Gestión de Citas</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2">Administre el calendario médico y coordine la atención de los pacientes.</p>
+</div>
+</div>
+<div class="flex flex-col xl:flex-row gap-gutter items-start">
+<!-- Left Column: Form -->
+<div class="w-full xl:w-2/3 bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm overflow-hidden flex flex-col">
+<div class="px-md py-6 border-b border-outline-variant/50 bg-surface">
+<h2 class="font-headline-md text-headline-md text-primary flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">edit_calendar</span>
+                            Programar Nueva Cita
+                        </h2>
+</div>
+<form class="p-md flex flex-col gap-6">
+<!-- Row 1: System Info -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface-variant">Número de Cita</label>
+<input class="bg-surface-container-low border border-outline-variant/50 rounded py-2 px-3 text-body-md text-on-surface-variant cursor-not-allowed" disabled="" type="text" value="CIT-2023-0894"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface-variant">Estado Inicial</label>
+<div class="relative">
+<select class="w-full bg-surface-container-lowest border border-outline-variant rounded py-2 pl-3 pr-10 text-body-md text-on-surface appearance-none focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors">
+<option selected="" value="pendiente">Pendiente</option>
+<option value="confirmada">Confirmada</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+</div>
+</div>
+<hr class="border-outline-variant/30"/>
+<!-- Row 2: Scheduling -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface-variant">Fecha de Atención</label>
+<input class="bg-surface-container-lowest border border-outline-variant rounded py-2 px-3 text-body-md text-on-surface focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors" type="date"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface-variant">Hora Asignada</label>
+<input class="bg-surface-container-lowest border border-outline-variant rounded py-2 px-3 text-body-md text-on-surface focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors" type="time"/>
+</div>
+</div>
+<!-- Row 3: Entities -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="flex flex-col gap-1 relative">
+<label class="font-label-md text-label-md text-on-surface-variant">Paciente</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-[20px]">search</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded py-2 pl-10 pr-3 text-body-md text-on-surface focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors" placeholder="Buscar por nombre o DNI..." type="text"/>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface-variant">Médico Tratante</label>
+<div class="relative">
+<select class="w-full bg-surface-container-lowest border border-outline-variant rounded py-2 pl-3 pr-10 text-body-md text-on-surface appearance-none focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors">
+<option disabled="" selected="" value="">Seleccione un especialista</option>
+<option value="elian">Dr. Elian (Medicina General)</option>
+<option value="silva">Dra. Silva (Pediatría)</option>
+<option value="rodriguez">Dr. Rodriguez (Cardiología)</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Row 4: Location & Notes -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface-variant">Consultorio / Box</label>
+<div class="relative">
+<select class="w-full bg-surface-container-lowest border border-outline-variant rounded py-2 pl-3 pr-10 text-body-md text-on-surface appearance-none focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors">
+<option value="101">Consultorio 101 - Ala Norte</option>
+<option value="102">Consultorio 102 - Ala Norte</option>
+<option value="205">Box Triaje A</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+</div>
+<div class="flex flex-col gap-1 md:col-span-2">
+<label class="font-label-md text-label-md text-on-surface-variant">Observaciones (Opcional)</label>
+<textarea class="bg-surface-container-lowest border border-outline-variant rounded py-2 px-3 text-body-md text-on-surface focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors resize-none" placeholder="Síntomas principales, requerimientos especiales..." rows="3"></textarea>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="mt-4 flex flex-col-reverse sm:flex-row justify-end gap-3 pt-6 border-t border-outline-variant/30">
+<button class="px-6 py-2.5 rounded font-label-md text-label-md border border-outline-variant text-on-surface-variant hover:bg-surface-container-low transition-colors" type="button">
+                                Cancelar
+                            </button>
+<button class="px-8 py-2.5 rounded font-label-md text-label-md bg-secondary text-on-secondary hover:bg-secondary/90 shadow-sm transition-colors flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-[20px]">save</span>
+                                Guardar Cita
+                            </button>
+</div>
+</form>
+</div>
+<!-- Right Column: Widgets -->
+<div class="w-full xl:w-1/3 flex flex-col gap-gutter">
+<!-- Widget: Citas del Día -->
+<div class="bg-secondary-container text-on-secondary-container rounded-xl p-md shadow-sm relative overflow-hidden flex flex-col justify-center min-h-[140px]">
+<div class="absolute right-[-20px] top-[-20px] opacity-10">
+<span class="material-symbols-outlined" style="font-size: 160px; font-variation-settings: 'FILL' 1;">calendar_month</span>
+</div>
+<div class="relative z-10">
+<p class="font-label-md text-label-md opacity-80 uppercase tracking-wider mb-1">Citas del Día</p>
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg font-bold">24</span>
+<span class="font-body-md text-body-md opacity-80">programadas</span>
+</div>
+<div class="mt-4 flex gap-4">
+<div class="flex items-center gap-1">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<span class="font-caption text-caption">12 Pendientes</span>
+</div>
+<div class="flex items-center gap-1">
+<div class="w-2 h-2 rounded-full bg-surface-container-highest"></div>
+<span class="font-caption text-caption">12 Completadas</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Widget: Próximas Citas -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm flex flex-col h-[400px]">
+<div class="px-md py-4 border-b border-outline-variant flex justify-between items-center bg-surface rounded-t-xl">
+<h3 class="font-headline-md text-headline-md text-primary text-[18px]">Próximas Citas</h3>
+<button class="text-secondary hover:text-secondary/80 font-label-md text-label-md transition-colors">Ver todas</button>
+</div>
+<div class="flex-1 overflow-y-auto p-2">
+<!-- List Item 1 -->
+<div class="p-3 hover:bg-surface-container-low rounded-lg transition-colors flex gap-4 items-start border-b border-outline-variant/30 last:border-0">
+<div class="flex flex-col items-center min-w-[50px]">
+<span class="font-headline-md text-[16px] text-primary">09:30</span>
+<span class="font-caption text-caption text-on-surface-variant">AM</span>
+</div>
+<div class="w-1 bg-secondary rounded-full h-10 self-center"></div>
+<div class="flex-1">
+<p class="font-label-md text-label-md text-on-surface">María Gómez</p>
+<p class="font-caption text-caption text-on-surface-variant">Dr. Elian • Cons. 101</p>
+</div>
+</div>
+<!-- List Item 2 -->
+<div class="p-3 hover:bg-surface-container-low rounded-lg transition-colors flex gap-4 items-start border-b border-outline-variant/30 last:border-0">
+<div class="flex flex-col items-center min-w-[50px]">
+<span class="font-headline-md text-[16px] text-primary">10:00</span>
+<span class="font-caption text-caption text-on-surface-variant">AM</span>
+</div>
+<div class="w-1 bg-surface-variant rounded-full h-10 self-center"></div>
+<div class="flex-1">
+<p class="font-label-md text-label-md text-on-surface">Carlos Ruiz</p>
+<p class="font-caption text-caption text-on-surface-variant">Dra. Silva • Cons. 102</p>
+</div>
+</div>
+<!-- List Item 3 -->
+<div class="p-3 hover:bg-surface-container-low rounded-lg transition-colors flex gap-4 items-start border-b border-outline-variant/30 last:border-0">
+<div class="flex flex-col items-center min-w-[50px]">
+<span class="font-headline-md text-[16px] text-primary">10:45</span>
+<span class="font-caption text-caption text-on-surface-variant">AM</span>
+</div>
+<div class="w-1 bg-secondary rounded-full h-10 self-center"></div>
+<div class="flex-1">
+<p class="font-label-md text-label-md text-on-surface">Ana Fernández</p>
+<p class="font-caption text-caption text-on-surface-variant">Dr. Elian • Cons. 101</p>
+</div>
+</div>
+<!-- List Item 4 -->
+<div class="p-3 hover:bg-surface-container-low rounded-lg transition-colors flex gap-4 items-start border-b border-outline-variant/30 last:border-0">
+<div class="flex flex-col items-center min-w-[50px]">
+<span class="font-headline-md text-[16px] text-primary">11:30</span>
+<span class="font-caption text-caption text-on-surface-variant">AM</span>
+</div>
+<div class="w-1 bg-tertiary-container opacity-50 rounded-full h-10 self-center"></div>
+<div class="flex-1">
+<p class="font-label-md text-label-md text-on-surface">Roberto López</p>
+<p class="font-caption text-caption text-on-surface-variant text-error">Revisión Urgente</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

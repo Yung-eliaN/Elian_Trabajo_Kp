@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla Registro de Pacientes</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Montserrat:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#363636",
+                    "secondary-container": "#85f6e5",
+                    "secondary-fixed": "#85f6e5",
+                    "surface-variant": "#e3e2e2",
+                    "outline": "#747878",
+                    "tertiary-fixed-dim": "#43dbd8",
+                    "on-secondary-fixed-variant": "#005048",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-container": "#00b1af",
+                    "on-tertiary-fixed": "#00201f",
+                    "surface-bright": "#faf9f9",
+                    "on-secondary": "#ffffff",
+                    "on-surface-variant": "#444748",
+                    "inverse-on-surface": "#f1f0f0",
+                    "on-secondary-fixed": "#00201c",
+                    "tertiary-fixed": "#67f7f5",
+                    "on-primary-fixed": "#1b1c1c",
+                    "secondary-fixed-dim": "#67d9c9",
+                    "on-secondary-container": "#007166",
+                    "surface-container-highest": "#e3e2e2",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#2f3131",
+                    "on-tertiary-fixed-variant": "#00504f",
+                    "background": "#faf9f9",
+                    "on-background": "#1a1c1c",
+                    "primary-fixed": "#e4e2e1",
+                    "on-primary-container": "#a09f9e",
+                    "tertiary-container": "#003d3c",
+                    "error-container": "#ffdad6",
+                    "inverse-primary": "#c8c6c6",
+                    "on-primary-fixed-variant": "#474747",
+                    "secondary": "#006a60",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#5f5e5e",
+                    "outline-variant": "#c4c7c7",
+                    "primary-fixed-dim": "#c8c6c6",
+                    "surface-container-low": "#f4f3f3",
+                    "surface-dim": "#dadada",
+                    "tertiary": "#002525",
+                    "error": "#ba1a1a",
+                    "on-surface": "#1a1c1c",
+                    "surface-container": "#eeeeed",
+                    "on-error-container": "#93000a",
+                    "surface-container-high": "#e8e8e8",
+                    "on-tertiary": "#ffffff",
+                    "primary": "#212121",
+                    "surface": "#faf9f9"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "margin-desktop": "64px",
+                    "sm": "12px",
+                    "md": "24px",
+                    "lg": "48px",
+                    "margin-mobile": "16px",
+                    "base": "8px",
+                    "xl": "80px",
+                    "xs": "4px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Montserrat"],
+                    "caption": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-md": ["Montserrat"],
+                    "display-lg": ["Montserrat"],
+                    "headline-lg-mobile": ["Montserrat"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased overflow-hidden flex">
+<!-- SideNavBar (Shared Component) -->
+<nav class="hidden md:flex flex-col h-screen py-6 gap-4 bg-surface-container-lowest dark:bg-primary-container fixed left-0 top-0 h-full w-64 border-r border-outline-variant z-20">
+<!-- Brand/Header -->
+<div class="px-6 pb-4 border-b border-outline-variant mb-2">
+<h1 class="font-headline-md text-headline-md font-extrabold text-primary dark:text-on-primary-fixed mb-6">ClínicaMédica</h1>
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover shadow-sm" data-alt="A professional headshot of a male doctor in a crisp white clinical setting, soft natural lighting, modern corporate medical aesthetic, bright and trustworthy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDxlQJQK3FyOGxbDbq_ovMZvaLyhfoFM4O8aYSYeHHO0coDZDyu6dkUK8Axj948T86leP5514Cc9ZD5SLa4PHpTdRTzUaxyobt6A5BxknxP3Qq_oqu7Ka5fYN-rIaSTcPVDIiJYBprwNzguqnLw2vJ4IbDidFd4cFjaJaMZychtUMtSXiaLduaNIvMcoyg872ypVv3H2V-4nUHB5jMrk7hIXMPfnpKDnmtszoLG-1zDu4fA0wVz6k"/>
+<div>
+<p class="font-label-md text-label-md text-on-surface font-semibold">Dr. Elian</p>
+<p class="font-caption text-caption text-on-surface-variant">Administrador</p>
+</div>
+</div>
+</div>
+<!-- Main Navigation -->
+<div class="flex-1 overflow-y-auto flex flex-col gap-1">
+<!-- Active Tab: Pacientes -->
+<a class="flex items-center gap-3 bg-secondary-container text-on-secondary-container rounded-lg px-4 py-3 mx-2 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-label-md text-label-md font-bold" >Pacientes</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container rounded-lg px-4 py-3 mx-2 hover:bg-surface-container dark:hover:bg-on-primary-fixed-variant transition-all scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">medical_services</span>
+<span class="font-label-md text-label-md">Tratamientos</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container rounded-lg px-4 py-3 mx-2 hover:bg-surface-container dark:hover:bg-on-primary-fixed-variant transition-all scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-md text-label-md">Citas</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container rounded-lg px-4 py-3 mx-2 hover:bg-surface-container dark:hover:bg-on-primary-fixed-variant transition-all scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">medical_information</span>
+<span class="font-label-md text-label-md">Médicos</span>
+</a>
+</div>
+<!-- CTA & Footer -->
+<div class="px-4 mt-auto flex flex-col gap-4">
+<button class="w-full py-3 bg-primary-container text-on-primary rounded-lg font-label-md text-label-md font-bold shadow-sm hover:opacity-90 transition-opacity">
+                Nueva Cita
+            </button>
+<div class="border-t border-outline-variant pt-4 flex flex-col gap-1">
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container rounded-lg px-4 py-2 hover:bg-surface-container dark:hover:bg-on-primary-fixed-variant transition-all" href="#">
+<span class="material-symbols-outlined text-sm">settings</span>
+<span class="font-caption text-caption">Ajustes</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container rounded-lg px-4 py-2 hover:bg-surface-container dark:hover:bg-on-primary-fixed-variant transition-all" href="#">
+<span class="material-symbols-outlined text-sm">logout</span>
+<span class="font-caption text-caption">Cerrar Sesión</span>
+</a>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col md:ml-64 h-screen overflow-hidden">
+<!-- TopNavBar (Shared Component) -->
+<header class="bg-surface dark:bg-inverse-surface flex justify-between items-center w-full px-6 py-3 border-b border-outline-variant bg-surface-container-low shadow-sm sticky top-0 z-10">
+<div class="flex-1 flex items-center">
+<!-- Search Bar Placeholder -->
+<div class="relative w-full max-w-md hidden md:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface border border-outline-variant rounded-full text-body-md focus:outline-none focus:border-on-tertiary-container focus:ring-1 focus:ring-on-tertiary-container transition-all" placeholder="Buscar pacientes..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-secondary dark:text-secondary-fixed hover:bg-surface-container-high transition-colors p-2 rounded-full cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-secondary dark:text-secondary-fixed hover:bg-surface-container-high transition-colors p-2 rounded-full cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</header>
+
+
+
+
+<div class="flex-1 overflow-y-auto p-8">
+    <h2 class="text-2xl font-bold text-gray-800 mb-6">Editar Pacientes</h2>
+    
+    <form method="POST" class="max-w-4xl bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+        <!-- Cuadrícula para organizar los inputs en 2 columnas -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <!-- Campo: Numero ID -->
+            <div class="flex flex-col gap-1.5">
+                <label class="text-sm font-semibold text-gray-600">Numero ID</label>
+                <input type="text" name="pac_id" value="{{pacientes['pac_id']}}" required 
+                       class="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-300 focus:border-teal-300 focus:bg-white transition-all">
+            </div>
+
+            <!-- Campo: Nombre -->
+            <div class="flex flex-col gap-1.5">
+                <label class="text-sm font-semibold text-gray-600">Nombre</label>
+                <input type="text" name="pac_nombres" value="{{pacientes['pac_nombres']}}" required 
+                       class="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-300 focus:border-teal-300 focus:bg-white transition-all">
+            </div>
+
+            <!-- Campo: Apellido -->
+            <div class="flex flex-col gap-1.5">
+                <label class="text-sm font-semibold text-gray-600">Apellido</label>
+                <input type="text" name="pac_apellidos" value="{{pacientes['pac_apellidos']}}" required 
+                       class="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-300 focus:border-teal-300 focus:bg-white transition-all">
+            </div>
+
+            <!-- Campo: Fecha de Nacimiento -->
+            <div class="flex flex-col gap-1.5">
+                <label class="text-sm font-semibold text-gray-600">Fecha de Nacimiento</label>
+                <input type="date" name="pac_fechanacimiento" value="{{pacientes['pac_fechanacimiento']}}" required 
+                       class="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-teal-300 focus:border-teal-300 focus:bg-white transition-all">
+            </div>
+
+            <!-- Campo: Sexo -->
+            <div class="flex flex-col gap-1.5">
+                <label class="text-sm font-semibold text-gray-600">Sexo</label>
+                <input type="text" name="pac_sexo" value="{{pacientes['pac_sexo']}}" required 
+                       class="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-300 focus:border-teal-300 focus:bg-white transition-all">
+            </div>
+            
+        </div>
+
+        <!-- Botón de Envío -->
+        <div class="mt-8 flex justify-end">
+            <button type="submit" 
+                    class="px-6 py-2.5 bg-[#333333] text-white font-medium rounded-lg hover:bg-black focus:outline-none focus:ring-2 focus:ring-gray-800 focus:ring-offset-2 transition-colors">
+                Actualizar
+            </button>
+        </div>
+
+
+        <div class="mt-8 flex justify-end">
+            <button type="submit" 
+                    class="px-6 py-2.5 bg-[#263749] text-white font-medium rounded-lg hover:bg-black focus:outline-none focus:ring-2 focus:ring-gray-800 focus:ring-offset-2 transition-colors">
+                <a class="font-label-md text-white text-on-surface-variant hover:text-white duration-200 cursor-pointer" href="{{url_for('pacientes')}}" target="_blank" rel="noopener noreferrer">Pacientes</a>
+            </button>
+        </div>
+    </form>
+</div>
+ 
+
+
+
+</form> 
+
+</div>
+
+
+</body>
+</html>

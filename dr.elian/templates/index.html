@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dr. Elian | Especialista Médico</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Montserrat:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#474747",
+                        "on-secondary-fixed": "#00201c",
+                        "surface-variant": "#e3e2e2",
+                        "inverse-surface": "#2f3131",
+                        "on-tertiary-container": "#00b1af",
+                        "surface-bright": "#faf9f9",
+                        "primary": "#212121",
+                        "tertiary-fixed": "#67f7f5",
+                        "background": "#faf9f9",
+                        "error": "#ba1a1a",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#67d9c9",
+                        "tertiary-fixed-dim": "#43dbd8",
+                        "secondary-container": "#85f6e5",
+                        "surface": "#faf9f9",
+                        "surface-dim": "#dadada",
+                        "outline": "#747878",
+                        "tertiary": "#002525",
+                        "on-tertiary-fixed": "#00201f",
+                        "secondary-fixed": "#85f6e5",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed": "#1b1c1c",
+                        "on-tertiary-fixed-variant": "#00504f",
+                        "on-surface": "#1a1c1c",
+                        "outline-variant": "#c4c7c7",
+                        "on-primary-container": "#a09f9e",
+                        "on-secondary-fixed-variant": "#005048",
+                        "surface-tint": "#5f5e5e",
+                        "primary-container": "#363636",
+                        "surface-container-highest": "#e3e2e2",
+                        "primary-fixed-dim": "#c8c6c6",
+                        "on-surface-variant": "#444748",
+                        "surface-container-low": "#f4f3f3",
+                        "tertiary-container": "#003d3c",
+                        "primary-fixed": "#e4e2e1",
+                        "on-secondary-container": "#007166",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-primary": "#c8c6c6",
+                        "surface-container-high": "#e8e8e8",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#eeeeed",
+                        "on-background": "#1a1c1c",
+                        "on-error-container": "#93000a",
+                        "secondary": "#006a60",
+                        "error-container": "#ffdad6",
+                        "inverse-on-surface": "#f1f0f0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "12px",
+                        "margin-mobile": "16px",
+                        "xs": "4px",
+                        "gutter": "24px",
+                        "base": "8px",
+                        "lg": "48px",
+                        "md": "24px",
+                        "margin-desktop": "64px",
+                        "xl": "80px"
+                    },
+                    "fontFamily": {
+                        "caption": ["Inter"],
+                        "headline-md": ["Montserrat"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Montserrat"],
+                        "headline-lg": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopNavBar Shared Component -->
+<header class="w-full top-0 bg-surface border-b border-outline-variant z-50 sticky">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto h-20">
+<!-- Brand -->
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-secondary text-[32px]" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+<span class="font-headline-lg text-headline-lg text-primary tracking-tight">Dr. Elian</span>
+</div>
+<!-- Desktop Navigation -->
+<nav class="hidden md:flex items-center gap-md">
+
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors duration-200 cursor-pointer" href="{{url_for('pacientes')}}" target="_blank" rel="noopener noreferrer">Pacientes</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors duration-200 cursor-pointer" href="{{url_for('sesion')}}" target="_blank" rel="noopener noreferrer">Tratamientos</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors duration-200 cursor-pointer" href="{{url_for('sesion')}}" target="_blank" rel="noopener noreferrer">Citas</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors duration-200 cursor-pointer" href="{{url_for('sesion')}}" target="_blank" rel="noopener noreferrer">Médicos</a>
+</nav>
+<!-- Actions -->
+<div class="flex items-center gap-sm md:gap-md">
+<div class="hidden md:flex items-center gap-sm text-on-surface-variant">
+<button class="hover:text-secondary transition-colors duration-200"><span class="material-symbols-outlined">notifications</span></button>
+<button class="hover:text-secondary transition-colors duration-200"><span class="material-symbols-outlined">account_circle</span></button>
+</div>
+<button class="bg-secondary text-on-secondary font-label-md text-label-md px-6 py-2.5 rounded-DEFAULT hover:bg-on-secondary-container transition-colors cursor-pointer active:opacity-80">
+                    Contactar
+                </button>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative w-full overflow-hidden bg-surface-bright pt-lg pb-xl md:py-xl">
+<!-- Decorative Background Element -->
+<div class="absolute top-0 right-0 w-1/2 h-full bg-surface-container-lowest opacity-50 skew-x-12 translate-x-1/4 pointer-events-none"></div>
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-12 gap-lg items-center relative z-10">
+<!-- Text Content -->
+<div class="lg:col-span-6 flex flex-col gap-md">
+<div class="inline-flex items-center gap-xs bg-surface-container-low border border-outline-variant rounded-full px-4 py-1.5 w-fit">
+<span class="material-symbols-outlined text-secondary text-[16px]">verified</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Atención Médica Especializada</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-primary text-balance">
+                        Salud integral y <span class="text-secondary">precisión clínica</span> para su bienestar.
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                        Experiencia y compasión unidas en el corazón de Valledupar. El Dr. Elian ofrece diagnósticos precisos y planes de tratamiento personalizados con un enfoque profundamente humano.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-sm pt-sm">
+<button class="bg-secondary text-on-secondary font-label-md text-label-md px-8 py-3 rounded-DEFAULT hover:bg-on-secondary-container transition-colors shadow-sm flex items-center justify-center gap-xs">
+                            Agendar Cita
+                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+<button class="bg-surface text-secondary border border-outline-variant font-label-md text-label-md px-8 py-3 rounded-DEFAULT hover:bg-surface-container-lowest transition-colors flex items-center justify-center">
+                            Ver Tratamientos
+                        </button>
+</div>
+<!-- Quick Stats -->
+<div class="flex items-center gap-lg pt-md mt-md border-t border-surface-container-high">
+<div>
+<p class="font-headline-md text-headline-md text-primary">+15</p>
+<p class="font-caption text-caption text-on-surface-variant">Años de Experiencia</p>
+</div>
+<div class="w-px h-10 bg-outline-variant"></div>
+<div>
+<p class="font-headline-md text-headline-md text-primary">5k+</p>
+<p class="font-caption text-caption text-on-surface-variant">Pacientes Atendidos</p>
+</div>
+</div>
+</div>
+<!-- Image Content -->
+<div class="lg:col-span-6 relative">
+<div class="relative rounded-xl overflow-hidden shadow-sm border border-outline-variant aspect-[4/5] md:aspect-square bg-surface-container-low">
+<img class="w-full h-full object-cover object-top" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADBGy7Pt84CaqCcGiWHc8g_Z_Xhyw4GT3VNgWu4SWrYIaKHU3tDSiHhspiRIIwo9rnc4Z7tg6WTGiKxgI1oZvy8Tw_ZHYbxY0uWB13mVvQXRFUbfimhtmJgBr0L1VEJ9GkHBTG1rTQP4tT-aRmUYyDXfphf6zPMK_f2_KUbe6bNeY1laIgKJxxIX8UsaR7zQH2O4FKqgSjhwV7-V0y0xP-Y-mTTvFWvFusGZWj4o0FHK7ECT6-Adg"/>
+</div>
+<!-- Floating Card -->
+<div class="absolute -bottom-6 -left-6 md:bottom-8 md:-left-12 glass-card border border-outline-variant p-md rounded-xl shadow-sm flex items-start gap-sm max-w-[240px]">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-on-secondary-container">vital_signs</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary">Monitorización Continua</p>
+<p class="font-caption text-caption text-on-surface-variant mt-xs">Equipamiento de última generación.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- About & Information Bento Grid -->
+<section class="w-full bg-surface py-xl">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="mb-lg">
+<h2 class="font-headline-lg text-headline-lg text-primary">Conozca su Consultorio</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Información esencial para su próxima visita.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<!-- About Card (Spans 2 columns on tablet+) -->
+<div class="md:col-span-2 bg-surface border border-outline-variant rounded-xl p-md flex flex-col gap-md shadow-sm">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[24px]">clinical_notes</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-primary mb-sm">Trayectoria Profesional</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                                El Dr. Elian es un profesional de la salud comprometido con la excelencia clínica. Con formación en instituciones reconocidas y años de práctica en Valledupar, se especializa en brindar un enfoque integral a la salud de sus pacientes, priorizando el diagnóstico temprano y la prevención. Su consultorio está equipado para ofrecer un ambiente seguro, tranquilo y altamente profesional.
+                            </p>
+</div>
+<a class="mt-auto inline-flex items-center gap-xs font-label-md text-label-md text-secondary hover:text-secondary-fixed transition-colors" href="#">
+                            Leer biografía completa
+                            <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<!-- Hours & Location -->
+<div class="flex flex-col gap-md">
+<!-- Location Card -->
+<div class="bg-surface-bright border border-outline-variant rounded-xl p-md flex flex-col gap-sm shadow-sm flex-1">
+<div class="flex items-center gap-sm mb-xs">
+<span class="material-symbols-outlined text-secondary">location_on</span>
+<h3 class="font-label-md text-label-md text-primary">Ubicación Principal</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                                Centro Médico Especializado<br/>
+                                Valledupar, Cesar, Colombia
+                            </p>
+<!-- Placeholder map area -->
+<div class="w-full h-32 bg-surface-container-high rounded-DEFAULT border border-outline-variant mt-auto overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="A clean, minimalist top-down digital map view of a city grid. The map is in a light mode theme with subtle silver-gray roads and pale white city blocks. A single, distinct vibrant teal location pin drops a soft shadow indicating a precise location. The aesthetic is modern, corporate, and highly professional, reflecting a high-end medical clinic location." data-location="Valledupar, Cesar, Colombia" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfW7A4-1uke5Hv73fx-nwNblSfhVNbHj_5HXZJB_SpDukej_BxtAMAv593CS8CSJv6BcaH26rV_sR0nZA_LIhKOOiPJcEwxkPkN_047YSsax5kpOuhBHU1LPJCcVozoNhqS--Q4oDfuHu_wXVHPgVWUSNZIoB9Sq2IVG9BIJqdlYwdQ3XY-ytVodCkOgDi-tvwmjw7sgErJosC3tEv5i7m91lNidsFkoKnoUO72lxmlC6fJTqk00w"/>
+</div>
+</div>
+<!-- Hours Card -->
+<div class="bg-surface border border-outline-variant rounded-xl p-md flex flex-col gap-sm shadow-sm">
+<div class="flex items-center gap-sm mb-xs">
+<span class="material-symbols-outlined text-secondary">schedule</span>
+<h3 class="font-label-md text-label-md text-primary">Horario de Atención</h3>
+</div>
+<ul class="flex flex-col gap-xs font-body-md text-body-md text-on-surface-variant">
+<li class="flex justify-between border-b border-surface-container-high pb-xs">
+<span>Lunes - Viernes</span>
+<span class="text-primary font-medium">8:00 AM - 6:00 PM</span>
+</li>
+<li class="flex justify-between border-b border-surface-container-high pb-xs">
+<span>Sábados</span>
+<span class="text-primary font-medium">9:00 AM - 1:00 PM</span>
+</li>
+<li class="flex justify-between pt-xs text-error">
+<span>Domingos</span>
+<span>Cerrado</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section><section class="w-full bg-surface-bright py-xl border-t border-surface-container-high">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="mb-lg">
+<h2 class="font-headline-lg text-headline-lg text-primary">Tratamientos Especializados</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Soluciones médicas avanzadas adaptadas a sus necesidades.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<!-- Card 1 -->
+<div class="bg-surface border border-outline-variant rounded-lg p-md flex flex-col gap-sm shadow-sm hover:shadow-md transition-all">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center mb-xs">
+<span class="material-symbols-outlined text-on-secondary-container text-[24px]">stethoscope</span>
+</div>
+<h3 class="font-headline-md text-[24px] text-primary-container">Consulta General</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Evaluación integral y seguimiento preventivo para mantener su salud óptima.</p>
+<a class="mt-auto inline-flex items-center gap-xs font-label-md text-label-md text-secondary hover:text-on-secondary-container transition-colors" href="#">
+          Más información
+          <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface border border-outline-variant rounded-lg p-md flex flex-col gap-sm shadow-sm hover:shadow-md transition-all">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center mb-xs">
+<span class="material-symbols-outlined text-on-secondary-container text-[24px]">child_care</span>
+</div>
+<h3 class="font-headline-md text-[24px] text-primary-container">Pediatría Especializada</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Cuidado experto y dedicado para el crecimiento saludable de los más pequeños.</p>
+<a class="mt-auto inline-flex items-center gap-xs font-label-md text-label-md text-secondary hover:text-on-secondary-container transition-colors" href="#">
+          Más información
+          <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface border border-outline-variant rounded-lg p-md flex flex-col gap-sm shadow-sm hover:shadow-md transition-all">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center mb-xs">
+<span class="material-symbols-outlined text-on-secondary-container text-[24px]">health_and_safety</span>
+</div>
+<h3 class="font-headline-md text-[24px] text-primary-container">Control Preventivo</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Programas de detección temprana y gestión de riesgos para una vida plena.</p>
+<a class="mt-auto inline-flex items-center gap-xs font-label-md text-label-md text-secondary hover:text-on-secondary-container transition-colors" href="#">
+          Más información
+          <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Shared Component -->
+<footer class="w-full bg-surface-container border-t border-surface-container-high">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-lg max-w-7xl mx-auto gap-md">
+<div class="flex flex-col items-center md:items-start gap-xs">
+<span class="font-headline-md text-headline-md text-primary">Dr. Elian</span>
+<span class="font-caption text-caption text-on-surface-variant">© 2024 Dr. Elian. Todos los derechos reservados.</span>
+</div>
+<nav class="flex flex-wrap justify-center gap-md">
+<a class="font-caption text-caption text-on-surface-variant hover:underline hover:text-secondary transition-all duration-200" href="#">Valledupar, Cesar, Colombia</a>
+<a class="font-caption text-caption text-on-surface-variant hover:underline hover:text-secondary transition-all duration-200" href="#">Facebook</a>
+<a class="font-caption text-caption text-on-surface-variant hover:underline hover:text-secondary transition-all duration-200" href="#">Instagram</a>
+<a class="font-caption text-caption text-on-surface-variant hover:underline hover:text-secondary transition-all duration-200" href="#">WhatsApp</a>
+<a class="font-caption text-caption text-on-surface-variant hover:underline hover:text-secondary transition-all duration-200" href="#">Contacto</a>
+</nav>
+</div>
+</footer>
+</body></html>

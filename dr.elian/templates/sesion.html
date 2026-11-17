@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>Iniciar Sesión - Dr. Elian</title>
+        <!-- Material Symbols -->
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+                rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+                rel="stylesheet" />
+        <style>
+                .material-symbols-outlined {
+                        font-family: 'Material Symbols Outlined';
+                        font-weight: normal;
+                        font-style: normal;
+                        font-size: 24px;
+                        /* Preferred icon size */
+                        display: inline-block;
+                        line-height: 1;
+                        text-transform: none;
+                        letter-spacing: normal;
+                        word-wrap: normal;
+                        white-space: nowrap;
+                        direction: ltr;
+                }
+        </style>
+        <!-- Tailwind CSS -->
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <script id="tailwind-config">
+                tailwind.config = {
+                        darkMode: "class",
+                        theme: {
+                                extend: {
+                                        "colors": {
+                                                "secondary-container": "#85f6e5",
+                                                "surface-container-high": "#e8e8e8",
+                                                "surface-container-low": "#f4f3f3",
+                                                "surface-container-highest": "#e3e2e2",
+                                                "on-background": "#1a1c1c",
+                                                "on-primary-fixed-variant": "#474747",
+                                                "surface-bright": "#faf9f9",
+                                                "on-secondary-fixed-variant": "#005048",
+                                                "inverse-on-surface": "#f1f0f0",
+                                                "secondary": "#006a60",
+                                                "primary": "#212121",
+                                                "on-primary-fixed": "#1b1c1c",
+                                                "primary-fixed-dim": "#c8c6c6",
+                                                "on-tertiary-fixed-variant": "#00504f",
+                                                "surface-dim": "#dadada",
+                                                "surface-container-lowest": "#ffffff",
+                                                "on-secondary-container": "#007166",
+                                                "secondary-fixed-dim": "#67d9c9",
+                                                "on-surface-variant": "#444748",
+                                                "tertiary-fixed-dim": "#43dbd8",
+                                                "surface-variant": "#e3e2e2",
+                                                "surface-tint": "#5f5e5e",
+                                                "outline-variant": "#c4c7c7",
+                                                "on-primary-container": "#a09f9e",
+                                                "primary-container": "#363636",
+                                                "primary-fixed": "#e4e2e1",
+                                                "background": "#faf9f9",
+                                                "inverse-primary": "#c8c6c6",
+                                                "on-error": "#ffffff",
+                                                "on-surface": "#1a1c1c",
+                                                "error-container": "#ffdad6",
+                                                "tertiary-container": "#003d3c",
+                                                "outline": "#747878",
+                                                "error": "#ba1a1a",
+                                                "on-tertiary-container": "#00b1af",
+                                                "on-primary": "#ffffff",
+                                                "tertiary": "#002525",
+                                                "on-secondary-fixed": "#00201c",
+                                                "surface-container": "#eeeeed",
+                                                "secondary-fixed": "#85f6e5",
+                                                "surface": "#faf9f9",
+                                                "inverse-surface": "#2f3131",
+                                                "on-tertiary": "#ffffff",
+                                                "tertiary-fixed": "#67f7f5",
+                                                "on-tertiary-fixed": "#00201f",
+                                                "on-error-container": "#93000a",
+                                                "on-secondary": "#ffffff"
+                                        },
+                                        "borderRadius": {
+                                                "DEFAULT": "0.25rem",
+                                                "lg": "0.5rem",
+                                                "xl": "0.75rem",
+                                                "full": "9999px"
+                                        },
+                                        "spacing": {
+                                                "margin-mobile": "16px",
+                                                "sm": "12px",
+                                                "xl": "80px",
+                                                "lg": "48px",
+                                                "gutter": "24px",
+                                                "margin-desktop": "64px",
+                                                "base": "8px",
+                                                "md": "24px",
+                                                "xs": "4px"
+                                        },
+                                        "fontFamily": {
+                                                "label-md": [
+                                                        "Inter"
+                                                ],
+                                                "body-lg": [
+                                                        "Inter"
+                                                ],
+                                                "caption": [
+                                                        "Inter"
+                                                ],
+                                                "body-md": [
+                                                        "Inter"
+                                                ],
+                                                "headline-lg-mobile": [
+                                                        "Montserrat"
+                                                ],
+                                                "headline-md": [
+                                                        "Montserrat"
+                                                ],
+                                                "headline-lg": [
+                                                        "Montserrat"
+                                                ],
+                                                "display-lg": [
+                                                        "Montserrat"
+                                                ]
+                                        },
+                                        "fontSize": {
+                                                "label-md": [
+                                                        "14px",
+                                                        {
+                                                                "lineHeight": "20px",
+                                                                "letterSpacing": "0.01em",
+                                                                "fontWeight": "500"
+                                                        }
+                                                ],
+                                                "body-lg": [
+                                                        "18px",
+                                                        {
+                                                                "lineHeight": "28px",
+                                                                "fontWeight": "400"
+                                                        }
+                                                ],
+                                                "caption": [
+                                                        "12px",
+                                                        {
+                                                                "lineHeight": "16px",
+                                                                "fontWeight": "400"
+                                                        }
+                                                ],
+                                                "body-md": [
+                                                        "16px",
+                                                        {
+                                                                "lineHeight": "24px",
+                                                                "fontWeight": "400"
+                                                        }
+                                                ],
+                                                "headline-lg-mobile": [
+                                                        "24px",
+                                                        {
+                                                                "lineHeight": "32px",
+                                                                "fontWeight": "600"
+                                                        }
+                                                ],
+                                                "headline-md": [
+                                                        "24px",
+                                                        {
+                                                                "lineHeight": "32px",
+                                                                "fontWeight": "600"
+                                                        }
+                                                ],
+                                                "headline-lg": [
+                                                        "32px",
+                                                        {
+                                                                "lineHeight": "40px",
+                                                                "fontWeight": "600"
+                                                        }
+                                                ],
+                                                "display-lg": [
+                                                        "48px",
+                                                        {
+                                                                "lineHeight": "56px",
+                                                                "letterSpacing": "-0.02em",
+                                                                "fontWeight": "700"
+                                                        }
+                                                ]
+                                        }
+                                },
+                        },
+                }
+        </script>
+</head>
+
+<body
+        class="bg-surface text-on-surface antialiased selection:bg-secondary-container selection:text-on-secondary-container">
+        <!-- Split Screen Layout -->
+        <main class="min-h-screen flex w-full">
+                <!-- Left Panel: Brand Image & Welcome (Hidden on Mobile) -->
+                <section class="hidden lg:flex lg:w-1/2 relative bg-surface-container-high overflow-hidden">
+                        <!-- Background Image -->
+                        <img alt="Dr. Elian en su consultorio" class="absolute inset-0 w-full h-full object-cover"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuADBGy7Pt84CaqCcGiWHc8g_Z_Xhyw4GT3VNgWu4SWrYIaKHU3tDSiHhspiRIIwo9rnc4Z7tg6WTGiKxgI1oZvy8Tw_ZHYbxY0uWB13mVvQXRFUbfimhtmJgBr0L1VEJ9GkHBTG1rTQP4tT-aRmUYyDXfphf6zPMK_f2_KUbe6bNeY1laIgKJxxIX8UsaR7zQH2O4FKqgSjhwV7-V0y0xP-Y-mTTvFWvFusGZWj4o0FHK7ECT6-Adg" />
+                        <!-- Gradient Overlay for readability -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent">
+                        </div>
+                        <!-- Welcome Content -->
+                        <div class="relative z-10 flex flex-col justify-end h-full p-margin-desktop text-on-primary">
+                                <div class="max-w-xl">
+                                        <span
+                                                class="inline-flex items-center gap-xs px-sm py-xs bg-secondary/20 text-secondary-fixed-dim rounded-full font-label-md text-label-md backdrop-blur-sm mb-md">
+                                                <span class="material-symbols-outlined"
+                                                        style="font-size: 16px;">health_and_safety</span>
+                                                Portal de Pacientes
+                                        </span>
+                                        <h1 class="font-display-lg text-display-lg mb-sm">Bienvenido a su espacio de
+                                                salud.</h1>
+                                        <p class="font-body-lg text-body-lg text-primary-fixed-dim">Acceda a su
+                                                historial clínico, gestione sus citas y comuníquese directamente con
+                                                nuestro equipo médico con total seguridad.</p>
+                                </div>
+                        </div>
+                </section>
+                <!-- Right Panel: Login Form -->
+                <section
+                        class="w-full lg:w-1/2 flex items-center justify-center p-margin-mobile md:p-margin-desktop bg-surface">
+                        <div class="w-full max-w-md">
+                                <!-- Brand Mobile (Visible only on mobile) -->
+                                <div class="lg:hidden flex items-center gap-sm mb-lg justify-center">
+                                        <div
+                                                class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+                                                <span class="material-symbols-outlined"
+                                                        style="font-size: 28px;">stethoscope</span>
+                                        </div>
+                                        <span class="font-headline-md text-headline-md text-primary">Dr. Elian</span>
+                                </div>
+                                <!-- Form Header -->
+                                <div class="mb-lg text-center lg:text-left">
+                                        <h2 class="font-headline-lg text-headline-lg text-primary mb-xs">Iniciar Sesión
+                                        </h2>
+                                        <p class="font-body-md text-body-md text-on-surface-variant">Ingrese sus
+                                                credenciales para acceder a su portal.</p>
+                                </div>
+                                <!-- Form -->
+                                <form action="#" class="space-y-md" method="POST">
+                                        <!-- Email Field -->
+                                        <div class="space-y-base">
+                                                <label class="block font-label-md text-label-md text-on-surface-variant"
+                                                        for="email">Correo Electrónico</label>
+                                                <div class="relative">
+                                                        <div
+                                                                class="absolute inset-y-0 left-0 pl-sm flex items-center pointer-events-none text-outline">
+                                                                <span class="material-symbols-outlined"
+                                                                        style="font-size: 20px;">mail</span>
+                                                        </div>
+                                                        <input class="block w-full pl-xl pr-sm py-sm bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md text-on-surface focus:ring-1 focus:ring-secondary focus:border-secondary transition-colors shadow-[0_4px_12px_rgba(0,0,0,0.05)]"
+                                                                id="email" name="email" placeholder="ejemplo@correo.com"
+                                                                required="" type="email" />
+                                                </div>
+                                        </div>
+                                        <!-- Password Field -->
+                                        <div class="space-y-base">
+                                                <label class="block font-label-md text-label-md text-on-surface-variant"
+                                                        for="password">Contraseña</label>
+                                                <div class="relative">
+                                                        <div
+                                                                class="absolute inset-y-0 left-0 pl-sm flex items-center pointer-events-none text-outline">
+                                                                <span class="material-symbols-outlined"
+                                                                        style="font-size: 20px;">lock</span>
+                                                        </div>
+                                                        <input class="block w-full pl-xl pr-sm py-sm bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md text-on-surface focus:ring-1 focus:ring-secondary focus:border-secondary transition-colors shadow-[0_4px_12px_rgba(0,0,0,0.05)]"
+                                                                id="password" name="password" placeholder="••••••••"
+                                                                required="" type="password" />
+                                                </div>
+                                        </div>
+                                        <!-- Forgot Password Link -->
+                                        <div class="flex items-center justify-end">
+                                                <a class="font-label-md text-label-md text-secondary hover:text-on-secondary-container transition-colors"
+                                                        href="#">¿Olvidó su contraseña?</a>
+                                        </div>
+                                        <!-- Submit Button -->
+                                        <button class="w-full flex justify-center items-center gap-xs py-sm px-md border border-transparent rounded-lg shadow-[0_4px_12px_rgba(0,0,0,0.05)] font-label-md text-label-md text-on-secondary bg-secondary hover:bg-on-secondary-container focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary transition-colors mt-lg"
+                                                type="submit">
+                                                <a class="font-label-md text-label-md text-secondary hover:text-on-secondary-container transition-colors"
+                                                        href="{{url_for('pacientes')}}"> <a> Iniciar Sesión
+                                                                <span class="material-symbols-outlined"
+                                                                        style="font-size: 20px;">arrow_forward</span>
+                                        </button>
+                                </form>
+                                <!-- Registration Link -->
+                                <div class="mt-xl text-center">
+                                        <p class="font-body-md text-body-md text-on-surface-variant">
+                                                ¿Aún no es paciente?
+                                                <a class="font-label-md text-label-md text-secondary hover:text-on-secondary-container font-semibold transition-colors"
+                                                        href="{{url_for('crearcuenta')}}">Registrarse aquí</a>
+                                        </p>
+                                </div>
+                        </div>
+                </section>
+        </main>
+</body>
+
+</html>
